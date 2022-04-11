@@ -1,0 +1,78 @@
+﻿<Window x:Class="SCAT.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SCAT"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="8*"/>
+            <ColumnDefinition Width="43*"/>
+            <ColumnDefinition Width="507*"/>
+            <ColumnDefinition Width="235*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="121.6"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <ListView Grid.Row="1" x:Name="ListViewPictures" Grid.ColumnSpan="4" Margin="0,35.4,9.6,17" Grid.RowSpan="2">
+
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Image Source="{Binding Img}" Height="150" Width="250" 
+                           Margin="10"
+                           Stretch="UniformToFill"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+
+        </ListView>
+
+        <Grid Grid.ColumnSpan="4" Margin="0,0,-0.4,3.6">
+            <!--<Button x:Name="BtnBack" Click="BtnBack_Click"
+                    HorizontalAlignment="Right"
+                    Width="100"
+                    Height="30" Content="Back"/>-->
+            <TextBlock HorizontalAlignment="Center"
+                     VerticalAlignment="Center"
+                       Text="{Binding Content.Title, ElementName=MainFrame}"/>
+            <StackPanel Orientation="Horizontal" Height="211" VerticalAlignment="Top" Margin="0,0,0,-111" >
+                <Image Source="Resource/scat.png" Margin="10,10,10,10.2" Width="248"/>
+                <TextBlock VerticalAlignment="Center" FontSize="25"><Run Text="Скат: Нам важен комфорт абонентов!"/></TextBlock>
+                <!--<TextBlock VerticalAlignment="Bottom" FontSize="20"><Run Text="СКАТ это высококачественные услуги связи "/></TextBlock>-->
+            </StackPanel>
+        </Grid>
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"
+                ContentRendered="MainFrame_ContentRendered" Grid.ColumnSpan="4" Margin="0,0,-0.4,-3" Grid.RowSpan="2" Height="271" VerticalAlignment="Bottom" Grid.Row="1"/>
+        <Rectangle Grid.Row="2" Fill="{StaticResource ColorMain}" Grid.ColumnSpan="4" Margin="0,0.4,-0.4,-3">
+        </Rectangle>
+
+        <!--<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button x:Name="BtnVisitor"
+                    Click="BtnVisitor_Click" 
+                    
+            Style="{StaticResource MenuButton}" Content="Visitor"/>
+            <Button x:Name="BtnVisitor_Copy"
+                Click="BtnVisitor_Click" 
+                    
+                Style="{StaticResource MenuButton}" Content="Visitor" Margin="20,25"/>
+        </StackPanel>-->
+
+        <Grid Grid.ColumnSpan="4" Margin="0,0,-0.4,237.6" Grid.RowSpan="2"/>
+        <Button x:Name="BtnVisitor" 
+                     Click="BtnVisitor_Click" 
+            Style="{StaticResource MenuButton}" Content="Вход для персонала" Margin="214.8,52.4,10.4,166.6" Grid.Row="1" Width="Auto" Grid.Column="2" Height="Auto"/>
+        <Button x:Name="BtnAdmin" 
+                     Click="BtnAdmin_Click" 
+            Style="{StaticResource MenuButton}" Content="Выход" Margin="214.8,194.4,10.4,24.6" Grid.Row="1" Width="Auto" Grid.Column="2" Height="Auto"/>
+        <Button x:Name="BtnInformation" 
+                     Click="BtnInformation_Click" 
+            Style="{StaticResource MenuButton}" Content="Информация о нас" Margin="214.8,123.4,10.4,94.6" Grid.Row="1" Width="Auto" Grid.Column="2" Height="Auto"/>
+    </Grid>
+
+</Window>

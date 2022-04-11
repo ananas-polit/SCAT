@@ -1,0 +1,23 @@
+﻿<Window x:Class="SCAT.AddTables.AddTariffWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SCAT.AddTables"
+        mc:Ignorable="d"
+        Title="AddTariffWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <UniformGrid Columns="2">
+            
+            <TextBlock Margin="0,0,4.8,294.4">Фото</TextBlock>
+            <TextBox x:Name="TxtPhoto" Text="{Binding Photo}" Margin="0.2,0,-0.4,294.4"></TextBox>
+        </UniformGrid>
+        <Button Background="{StaticResource ColorMain}" x:Name="BtnSaveData" Grid.Row="1" Click="BtnSaveData_Click">Сохранить</Button>
+    </Grid>
+
+</Window>

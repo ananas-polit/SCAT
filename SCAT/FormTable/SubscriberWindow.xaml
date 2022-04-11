@@ -1,0 +1,66 @@
+﻿<Window x:Class="SCAT.FormTable.SubscriberWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SCAT.FormTable"
+        mc:Ignorable="d"
+        Title="SubscriberWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="22.6"></RowDefinition>
+            <RowDefinition Height="27"/>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel x:Name="StackLetters_Copy" Orientation="Horizontal" Background="{StaticResource ColorMain}" Grid.ColumnSpan="2" Margin="0,0,-0.4,20.4">
+            <TextBlock FontWeight="Bold" Foreground="White" Margin="5" MouseLeftButtonDown="TextBlock_MouseLeftButtonDown"><Run Text="All"/></TextBlock>
+        </StackPanel>
+
+        <StackPanel x:Name="StackLetters" Orientation="Horizontal" Background="{StaticResource ColorMain}" Grid.ColumnSpan="2" Margin="0,0,-0.4,0.4">
+            <TextBlock FontWeight="Bold" Foreground="White" Margin="5" MouseLeftButtonDown="TextBlock_MouseLeftButtonDown_1"><Run Text="All"/></TextBlock>
+
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Background="{StaticResource ColorMain}" Margin="0,50,-0.4,10" Grid.RowSpan="3" Grid.ColumnSpan="2">
+            <Label Foreground="White" Content="Филтрация по статусу: "/>
+            <ComboBox x:Name="CmbStatus"  SelectionChanged="CmbStatus_SelectionChanged" Width="80">
+                <Label Content="Все"></Label>
+                <Label Content="Отключен"></Label>
+                <Label Content="Временно отключен"></Label>
+                <Label Content="Подключен"></Label>
+                
+            </ComboBox>
+            <TextBlock Width="95" Foreground="White"><Run Text="Номер телефона"/></TextBlock>
+            <TextBox x:Name="TxtPhone" TextChanged="TxtPhone_TextChanged" Width="80"/>
+            <TextBlock Width="113" Foreground="White" Margin="0,0,0,0.4"><Run Text="Паспорт"/></TextBlock>
+            <TextBox x:Name="TxtPassport" TextChanged="TxtPassport_TextChanged" Width="80" Margin="0,0,0,-0.6"/>
+            <Button x:Name="BtnAdd" Content="Добавить" Click="BtnAdd_Click" Margin="0,0,0,-2.6" Width="70" Background="{StaticResource ColorMain}" Foreground="White"/>
+
+        </StackPanel>
+
+        <DataGrid x:Name="dgSubscriber" Grid.Row="2" AutoGenerateColumns="False" IsReadOnly="True" ColumnWidth="*" Margin="0,18.2,-0.4,0" Grid.RowSpan="2" Grid.ColumnSpan="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Last Name" Binding="{Binding Lastname}"/>
+                <DataGridTextColumn Header="First Name" Binding="{Binding FirstName}"/>
+                <DataGridTextColumn Header="Patronymic" Binding="{Binding Patronymic}"/>
+                <DataGridTextColumn Header="Passport" Binding="{Binding Passport}"/>
+                <DataGridTextColumn Header="Telephone " Binding="{Binding Telephone}"/>
+                <DataGridTextColumn Header="Disconnection" Binding="{Binding Categories.Status}"/>
+                <DataGridTextColumn Header="Shutdown" Binding="{Binding Shutdown.Name}"/>
+                <DataGridTextColumn Header="Address" Binding="{Binding Address.House}"/>
+
+                <DataGridTemplateColumn Header="Редактировать">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="BtnEditData" Click="BtnEditData_Click" Content="Изменить"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
