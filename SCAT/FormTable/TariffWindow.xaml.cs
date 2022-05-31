@@ -22,11 +22,11 @@ namespace SCAT.FormTable
     /// </summary>
     public partial class TariffWindow : Window
     {
-        SCATEntities2 context;
+        SCATEntities3 context;
         public TariffWindow()
         {
             InitializeComponent();
-            context = new SCATEntities2();
+            context = new SCATEntities3();
             dgTariff.ItemsSource = context.Tariffs.ToList();
         }
 

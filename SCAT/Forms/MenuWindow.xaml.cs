@@ -48,5 +48,10 @@ namespace SCAT.Forms
             var visitor = new AddressWindow();
             visitor.ShowDialog();
         }
+
+        private void BtnReport_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

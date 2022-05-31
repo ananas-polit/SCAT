@@ -19,11 +19,11 @@ namespace SCAT.FormTable
     /// </summary>
     public partial class AddressWindow : Window
     {
-        SCATEntities2 context;
+        SCATEntities3 context;
         public AddressWindow()
         {
             InitializeComponent();
-            context = new SCATEntities2();
+            context = new SCATEntities3();
             dgAddress.ItemsSource = context.Address.ToList();
         }
 

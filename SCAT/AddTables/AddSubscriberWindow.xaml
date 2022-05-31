@@ -1,11 +1,12 @@
 ﻿<Window x:Class="SCAT.AddTables.AddSubscriberWindow"
+         WindowStartupLocation = "CenterScreen"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SCAT.AddTables"
         mc:Ignorable="d"
-        Title="AddSubscriberWindow" Height="450" Width="800">
+        Title="AddSubscriberWindow" Height="450" Width="800" Icon="/SCAT;component/FormTable/2904a126d4965e77bbd70d19811ea1df.gif">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
@@ -28,6 +29,7 @@
             <TextBlock>Статус</TextBlock>
             <ComboBox x:Name="CmbCategories"
                       DisplayMemberPath="Status"
+                      SelectedValue="IDCategories"
                       SelectedItem="{Binding Categories}"></ComboBox>
             <TextBlock>Адрес</TextBlock>
             <ComboBox x:Name="CmbAddress"
@@ -36,6 +38,7 @@
             <TextBlock>Причина отключения</TextBlock>
             <ComboBox x:Name="CmbShutdown"
                       DisplayMemberPath="Name"
+                     
                       SelectedItem="{Binding Shutdown}">
             </ComboBox>
         </UniformGrid>

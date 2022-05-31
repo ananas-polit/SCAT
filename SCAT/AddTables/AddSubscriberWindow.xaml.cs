@@ -19,10 +19,10 @@ namespace SCAT.AddTables
     /// </summary>
     public partial class AddSubscriberWindow : Window
     {
-        SCATEntities2 context;
+        SCATEntities3 context;
 
         public List<Shutdown> Shutdowns { get; }
-        public AddSubscriberWindow(SCATEntities2 context1, Subscriber subscriber)
+        public AddSubscriberWindow(SCATEntities3 context1, Subscriber subscriber)
         {
             InitializeComponent();
 
@@ -31,6 +31,7 @@ namespace SCAT.AddTables
             CmbCategories.ItemsSource = context.Categories.ToList();
             CmbAddress.ItemsSource = context.Address.ToList();
             CmbShutdown.ItemsSource = context.Shutdown.ToList();
+            //CmbCategories.ItemsSource = context.Categories.ToList();
             this.DataContext = subscriber;
 
             //if (subscriber.Shutdown == null)

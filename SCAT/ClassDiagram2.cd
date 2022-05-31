@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SCAT.Accountant">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAGAAAAAAAAAAAAAAAAACAAAAAAACAAAQCAAAAAg=</HashCode>
+      <FileName>Accountant.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SCAT.Address">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAQAAAAAAAAAAQASAAAAAAAAAAAAAAAAIAQAAAAAA=</HashCode>
+      <FileName>Address.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SCAT.Brigade">
+    <Position X="4.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAAEAAAAACAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Brigade.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SCAT.Call">
+    <Position X="6.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAABAAACAAAAAAAAAAACAAAgAAAAAACAAAAAAAABAA=</HashCode>
+      <FileName>Call.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SCAT.Categories">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAACAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Categories.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SCAT.Defects">
+    <Position X="2.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAAAAAAAAAAQAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Defects.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SCAT.Promotions">
+    <Position X="8" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQCAAAAAAAAAgAAAAAAAEA=</HashCode>
+      <FileName>Promotions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SCAT.Repairmans">
+    <Position X="8" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAGAACAAAAAAAAAAACAAAAAAAAAAAAAAAAAQAAAg=</HashCode>
+      <FileName>Repairmans.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SCAT.Shutdown">
+    <Position X="6.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAACAAAAQAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Shutdown.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SCAT.Statement">
+    <Position X="4.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAEgAAAAACAAAAAIAAAAAAAAAAgACAAAIVA=</HashCode>
+      <FileName>Statement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SCAT.Streets">
+    <Position X="8.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAQAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Streets.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SCAT.Subscriber">
+    <Position X="10" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAQAGAAAAAAAIAIABAAAQACAAAAEAACAIAQAAAAAJA=</HashCode>
+      <FileName>Subscriber.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SCAT.Tariffs">
+    <Position X="11.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAEQAAACAAAAAAAAQCAAAAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>Tariffs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SCAT.TariffsCategories">
+    <Position X="11.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAAAAAAAAQIAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TariffsCategories.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -23,43 +23,56 @@ namespace SCAT.Forms
         public IntelWindow()
         {
             InitializeComponent();
-            SCATEntities2 context = new SCATEntities2();
+            SCATEntities3 context = new SCATEntities3();
+            
         }
+
+      
 
         private void BtnVisior_Click(object sender, RoutedEventArgs e)
         {
-            var users = new Dictionary<string, string>()
-            {
-                {"1", "12" },
-                {"11", "112" }
-            };
+            ClassCalc main = new ClassCalc();
+            bool result = main.Check(TxtLogin.Text, TxtPassword.Text);
+            MessageBox.Show(result.ToString());
 
-            var user = users.Keys.FirstOrDefault(k => k.Equals(TxtLogin.Text));
 
-            if(user == null)
-            {
-                MessageBox.Show("Не получилось аутентифицировать пользователя. Введены некорректные e-mail или пароль");
-            }
-            else
-            {
-                if(TxtPassword.Text != users[user])
-                {
-                    
-                    MessageBox.Show("Не получилось аутентифицировать пользователя. Введены некорректные e-mail или пароль");
-                    return;
-                }
-                if (users[user] == "12")
-                {
-                    MessageBox.Show("Добро пожаловать");
-                    var menu = new MenuWindow();
-                    menu.ShowDialog();
-                }
-                else if(users[user] == "112")
-                {
-                    new StatementWindow().ShowDialog();
-                }
-                
-            }
+            MenuWindow menuWindow = new MenuWindow();
+            menuWindow.Show();
+           
+
+
+            //var users = new Dictionary<string, string>()
+            //{
+            //    {"1", "12" },
+            //    {"11", "112" }
+            //};
+
+            //var user = users.Keys.FirstOrDefault(k => k.Equals(TxtLogin.Text));
+
+            //if(user == null)
+            //{
+            //    MessageBox.Show("Не получилось аутентифицировать пользователя. Введены некорректные e-mail или пароль");
+            //}
+            //else
+            //{
+            //    if(TxtPassword.Text != users[user])
+            //    {
+
+            //        MessageBox.Show("Не получилось аутентифицировать пользователя. Введены некорректные e-mail или пароль");
+            //        return;
+            //    }
+            //    if (users[user] == "12")
+            //    {
+            //        MessageBox.Show("Добро пожаловать");
+            //        var menu = new MenuWindow();
+            //        menu.ShowDialog();
+            //    }
+            //    else if(users[user] == "112")
+            //    {
+            //        new StatementWindow().ShowDialog();
+            //    }
+
+            //}
 
             //string Email = "1";
             //string Password = "12";

@@ -19,8 +19,8 @@ namespace SCAT.AddTables
     /// </summary>
     public partial class AddTariffWindow : Window
     {
-        SCATEntities2 context;
-        public AddTariffWindow(SCATEntities2 context1, Tariffs tariffs)
+        SCATEntities3 context;
+        public AddTariffWindow(SCATEntities3 context1, Tariffs tariffs)
         {
             InitializeComponent();
             this.context = context1;

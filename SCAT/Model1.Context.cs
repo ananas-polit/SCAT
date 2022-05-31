@@ -13,10 +13,10 @@ namespace SCAT
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class SCATEntities2 : DbContext
+    public partial class SCATEntities3 : DbContext
     {
-        public SCATEntities2()
-            : base("name=SCATEntities2")
+        public SCATEntities3()
+            : base("name=SCATEntities3")
         {
         }
     
@@ -39,5 +39,6 @@ namespace SCAT
         public virtual DbSet<Subscriber> Subscriber { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Tariffs> Tariffs { get; set; }
+        public virtual DbSet<TariffsCategories> TariffsCategories { get; set; }
     }
 }

@@ -13,6 +13,8 @@
           <Property Name="LastName" Type="nvarchar" MaxLength="50" />
           <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
           <Property Name="Patronymic" Type="nvarchar" MaxLength="50" />
+          <Property Name="Login" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Address">
           <Key>
@@ -107,6 +109,8 @@
           <Property Name="Patronymic" Type="nvarchar" MaxLength="50" />
           <Property Name="Passport" Type="nvarchar" MaxLength="50" />
           <Property Name="Telephone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Login" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
           <Property Name="IDStatus" Type="nchar" MaxLength="10" />
           <Property Name="IDAddress" Type="int" />
           <Property Name="Disconnection" Type="int" />
@@ -128,7 +132,15 @@
           <Property Name="IDTariffs" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
           <Property Name="Price" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="IDTC" Type="int" />
           <Property Name="Photo" Type="image" />
+        </EntityType>
+        <EntityType Name="TariffsCategories">
+          <Key>
+            <PropertyRef Name="IDTC" />
+          </Key>
+          <Property Name="IDTC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <Association Name="FK_Address_Streets">
           <End Role="Streets" Type="Self.Streets" Multiplicity="0..1" />
@@ -274,6 +286,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Tariffs_TariffsCategories">
+          <End Role="TariffsCategories" Type="Self.TariffsCategories" Multiplicity="0..1" />
+          <End Role="Tariffs" Type="Self.Tariffs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TariffsCategories">
+              <PropertyRef Name="IDTC" />
+            </Principal>
+            <Dependent Role="Tariffs">
+              <PropertyRef Name="IDTC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="Хранилище SCATModelContainer">
           <EntitySet Name="Accountant" EntityType="Self.Accountant" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
@@ -289,6 +313,7 @@
           <EntitySet Name="Subscriber" EntityType="Self.Subscriber" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tariffs" EntityType="Self.Tariffs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TariffsCategories" EntityType="Self.TariffsCategories" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Address_Streets" Association="Self.FK_Address_Streets">
             <End Role="Streets" EntitySet="Streets" />
             <End Role="Address" EntitySet="Address" />
@@ -337,6 +362,10 @@
             <End Role="Shutdown" EntitySet="Shutdown" />
             <End Role="Subscriber" EntitySet="Subscriber" />
           </AssociationSet>
+          <AssociationSet Name="FK_Tariffs_TariffsCategories" Association="Self.FK_Tariffs_TariffsCategories">
+            <End Role="TariffsCategories" EntitySet="TariffsCategories" />
+            <End Role="Tariffs" EntitySet="Tariffs" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
@@ -351,6 +380,8 @@
           <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Statement" Relationship="Self.FK_Statement_Accountant" FromRole="Accountant" ToRole="Statement" />
         </EntityType>
         <EntityType Name="Address">
@@ -464,6 +495,8 @@
           <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Passport" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Telephone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="IDStatus" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="IDAddress" Type="Int32" />
           <Property Name="Disconnection" Type="Int32" />
@@ -489,8 +522,18 @@
           <Property Name="IDTariffs" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Price" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="IDTC" Type="Int32" />
           <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="Statement" Relationship="Self.FK_Statement_Tariffs" FromRole="Tariffs" ToRole="Statement" />
+          <NavigationProperty Name="TariffsCategories" Relationship="Self.FK_Tariffs_TariffsCategories" FromRole="Tariffs" ToRole="TariffsCategories" />
+        </EntityType>
+        <EntityType Name="TariffsCategories">
+          <Key>
+            <PropertyRef Name="IDTC" />
+          </Key>
+          <Property Name="IDTC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Tariffs" Relationship="Self.FK_Tariffs_TariffsCategories" FromRole="TariffsCategories" ToRole="Tariffs" />
         </EntityType>
         <Association Name="FK_Statement_Accountant">
           <End Role="Accountant" Type="Self.Accountant" Multiplicity="0..1" />
@@ -636,7 +679,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="SCATEntities2" annotation:LazyLoadingEnabled="true">
+        <Association Name="FK_Tariffs_TariffsCategories">
+          <End Role="TariffsCategories" Type="Self.TariffsCategories" Multiplicity="0..1" />
+          <End Role="Tariffs" Type="Self.Tariffs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TariffsCategories">
+              <PropertyRef Name="IDTC" />
+            </Principal>
+            <Dependent Role="Tariffs">
+              <PropertyRef Name="IDTC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SCATEntities3" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Accountant" EntityType="Self.Accountant" />
           <EntitySet Name="Address" EntityType="Self.Address" />
           <EntitySet Name="Brigade" EntityType="Self.Brigade" />
@@ -651,6 +706,7 @@
           <EntitySet Name="Subscriber" EntityType="Self.Subscriber" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Tariffs" EntityType="Self.Tariffs" />
+          <EntitySet Name="TariffsCategories" EntityType="Self.TariffsCategories" />
           <AssociationSet Name="FK_Statement_Accountant" Association="Self.FK_Statement_Accountant">
             <End Role="Accountant" EntitySet="Accountant" />
             <End Role="Statement" EntitySet="Statement" />
@@ -699,13 +755,17 @@
             <End Role="Tariffs" EntitySet="Tariffs" />
             <End Role="Statement" EntitySet="Statement" />
           </AssociationSet>
+          <AssociationSet Name="FK_Tariffs_TariffsCategories" Association="Self.FK_Tariffs_TariffsCategories">
+            <End Role="TariffsCategories" EntitySet="TariffsCategories" />
+            <End Role="Tariffs" EntitySet="Tariffs" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище SCATModelContainer" CdmEntityContainer="SCATEntities2">
+        <EntityContainerMapping StorageEntityContainer="Хранилище SCATModelContainer" CdmEntityContainer="SCATEntities3">
           <EntitySetMapping Name="Accountant">
             <EntityTypeMapping TypeName="SCATModel.Accountant">
               <MappingFragment StoreEntitySet="Accountant">
@@ -713,6 +773,8 @@
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -818,6 +880,8 @@
                 <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
                 <ScalarProperty Name="Passport" ColumnName="Passport" />
                 <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="IDStatus" ColumnName="IDStatus" />
                 <ScalarProperty Name="IDAddress" ColumnName="IDAddress" />
                 <ScalarProperty Name="Disconnection" ColumnName="Disconnection" />
@@ -841,7 +905,16 @@
                 <ScalarProperty Name="IDTariffs" ColumnName="IDTariffs" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="IDTC" ColumnName="IDTC" />
                 <ScalarProperty Name="Photo" ColumnName="Photo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TariffsCategories">
+            <EntityTypeMapping TypeName="SCATModel.TariffsCategories">
+              <MappingFragment StoreEntitySet="TariffsCategories">
+                <ScalarProperty Name="IDTC" ColumnName="IDTC" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

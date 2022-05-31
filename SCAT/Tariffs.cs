@@ -23,9 +23,13 @@ namespace SCAT
         public int IDTariffs { get; set; }
         public string Name { get; set; }
         public Nullable<decimal> Price { get; set; }
+        public Nullable<int> IDTC { get; set; }
         public byte[] Photo { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Statement> Statement { get; set; }
+        public virtual TariffsCategories TariffsCategories { get; set; }
+
+        
     }
 }

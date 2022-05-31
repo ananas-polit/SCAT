@@ -19,14 +19,14 @@ namespace SCAT.AddTables
     /// </summary>
     public partial class AddStatementWindow : Window
     {
-        SCATEntities2 context;
-        public AddStatementWindow(SCATEntities2 context1, Statement statement)
+        SCATEntities3 context;
+        public AddStatementWindow(SCATEntities3 context1, Statement statement)
         {
             InitializeComponent();
             this.context = context1;
             CmbPromotions.ItemsSource = context.Subscriber.ToList();
             CmbTariffs.ItemsSource = context.Tariffs.ToList();
-            CmbAccountant.ItemsSource = context.Promotions.ToList();
+            //CmbAccountant.ItemsSource = context.Promotions.ToList();
             this.DataContext = statement;
         }
 

@@ -21,7 +21,7 @@ namespace SCAT.Forms
     public partial class MainPageWindow : Window
     {
 
-        SCATEntities2 Context { get; }
+        SCATEntities3 Context { get; }
 
         private int imageIndex;
         //СПИСОК КАРТИНОК
@@ -49,7 +49,7 @@ namespace SCAT.Forms
         private string Selected { get; set; }
         public MainPageWindow()
         {
-            Context = new SCATEntities2();
+            Context = new SCATEntities3();
             InitializeComponent();
             ShowImage(images[imageIndex], imageIndex);
         }

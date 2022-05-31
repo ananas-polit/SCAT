@@ -12,19 +12,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace SCAT.FormTable
+namespace SCAT.Report
 {
     /// <summary>
-    /// Логика взаимодействия для PromotionsWindow.xaml
+    /// Логика взаимодействия для DebtorsWindow.xaml
     /// </summary>
-    public partial class PromotionsWindow : Window
+    public partial class DebtorsWindow : Window
     {
-        SCATEntities3 context;
-        public PromotionsWindow()
+        public DebtorsWindow()
         {
             InitializeComponent();
-            context = new SCATEntities3();
-            dgPromo.ItemsSource = context.Promotions.ToList();
         }
     }
 }

@@ -20,11 +20,11 @@ namespace SCAT.FormTable
     /// </summary>
     public partial class StatementWindow : Window
     {
-        SCATEntities2 context;
+        SCATEntities3 context;
         public StatementWindow()
         {
             InitializeComponent();
-            context = new SCATEntities2();
+            context = new SCATEntities3();
             dgStatement.ItemsSource = context.Statement.ToList();
         }
 

@@ -20,12 +20,12 @@ namespace SCAT.FormTable
     /// </summary>
     public partial class SubscriberWindow : Window
     {
-        SCATEntities2 context;
+        SCATEntities3 context;
         string currentLetter = "";
         public SubscriberWindow()
         {
             InitializeComponent();
-            context = new SCATEntities2();
+            context = new SCATEntities3();
             dgSubscriber.ItemsSource = context.Subscriber.ToList();
             ShowTable(); 
             ShowLetters();

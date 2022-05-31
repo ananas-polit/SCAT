@@ -19,11 +19,11 @@ namespace SCAT.FormTable
     /// </summary>
     public partial class CallWindow : Window
     {
-        SCATEntities2 context;
+        SCATEntities3 context;
         public CallWindow()
         {
             InitializeComponent();
-            context = new SCATEntities2();
+            context = new SCATEntities3();
             dgCall.ItemsSource = context.Call.ToList();
         }
 

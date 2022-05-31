@@ -26,6 +26,8 @@ namespace SCAT
         public string Patronymic { get; set; }
         public string Passport { get; set; }
         public string Telephone { get; set; }
+        public string Login { get; set; }
+        public string Password { get; set; }
         public string IDStatus { get; set; }
         public Nullable<int> IDAddress { get; set; }
         public Nullable<int> Disconnection { get; set; }
@@ -35,5 +37,7 @@ namespace SCAT
         public virtual Shutdown Shutdown { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Statement> Statement { get; set; }
+
+        public string FullName { get => $"{FirstName} {Lastname} {Patronymic}"; }
     }
 }

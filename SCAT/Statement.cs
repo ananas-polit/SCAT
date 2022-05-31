@@ -11,7 +11,7 @@ namespace SCAT
 {
     using System;
     using System.Collections.Generic;
-    
+
     public partial class Statement
     {
         public int IDStatement { get; set; }
@@ -22,25 +22,24 @@ namespace SCAT
         public Nullable<System.DateTime> PaymentEndDate { get; set; }
         public Nullable<int> IDAccountant { get; set; }
 
-        public decimal? DiscountPrice { 
-            get
-            {
-                if(Promotions != null)
-                {
-                    var percent = (Tariffs.Price.Value * Convert.ToDecimal(Promotions.Discount)) / 100;
-
-                    return Tariffs.Price - percent;
-                }
-              
-
-                return Tariffs.Price.Value;
-            }
-        }
-
-    
         public virtual Accountant Accountant { get; set; }
         public virtual Promotions Promotions { get; set; }
         public virtual Subscriber Subscriber { get; set; }
         public virtual Tariffs Tariffs { get; set; }
+
+        public decimal DiscountPrice
+        {
+            get
+            {
+                if ( Promotions != null)
+            {
+                    return (decimal)(Tariffs.Price - (Convert.ToDecimal(Promotions.Discount) * Tariffs.Price / 100));
+                }
+            else
+                {
+                   return  (decimal)Tariffs.Price;
+                }
+            }
+        }
     }
 }
